@@ -3,6 +3,7 @@ package gof.abstractfactory.factory;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 
 public abstract class Page {
@@ -22,20 +23,14 @@ public abstract class Page {
 	public void output() {
 		String filename = this.title + ".html";
 		try {
-			Files.writeString(Paths.get("files/abstractfactory/" + filename), this.makeHTML());
+			Files.writeString(
+					Paths.get("files/abstractfactory/" + filename),
+					this.makeHTML(),
+					StandardOpenOption.CREATE);
 			System.out.println(filename + "is created.");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		/*
-		String filename = this.title + ".html";
-		try (var writer = Files.newBufferedWriter(Paths.get("files/" + filename))) {
-			writer.write(this.makeHTML());
-			System.out.println(filename + "is created.");
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		*/
 	}
 
 	public abstract String makeHTML();

@@ -12,6 +12,7 @@ public class Main {
 		if (args.length != 1) {
 			System.out.println("Usage: java Main clas.name.of.ConcreteFactory");
 			System.out.println("Example1: java Main gof.abstractfactory.listfactory.LifeFactory");
+			System.out.println("Example1: java Main gof.abstractfactory.tablefactory.TableFactory");
 			System.exit(0);
 		}
 

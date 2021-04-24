@@ -3,14 +3,40 @@ package gof.builder;
 import java.util.List;
 
 public abstract class Builder {
+	private boolean initialized = false;
 
-	public abstract void makeTitle(String title);
+	public void makeTitle(String title) {
+		if (!initialized) {
+			buildTitle(title);
+			initialized = true;
+		}
+	}
 
-	public abstract void makeString(String str);
+	public void makeString(String str) {
+		if (initialized) {
+			buildString(str);
+		}
+	}
 
-	public abstract void makeItems(List<String> items);
+	public void makeItems(List<String> items) {
+		if (initialized) {
+			buildItems(items);
+		}
+	}
 
-	public abstract void close();
+	public void close() {
+		if (initialized) {
+			buildDone();
+		}
+	}
 
-	public abstract String getResult();
+	protected abstract void buildTitle(String title);
+
+	protected abstract void buildString(String str);
+
+	protected abstract void buildItems(List<String> items);
+
+	protected abstract void buildDone();
+
+	protected abstract String getResult();
 }

@@ -12,7 +12,7 @@ public class HTMLBuilder extends Builder {
 	private PrintWriter writer;
 
 	@Override
-	public void makeTitle(String title) {
+	public void buildTitle(String title) {
 		filename = title + ".html";
 		try {
 			writer = new PrintWriter(
@@ -25,19 +25,19 @@ public class HTMLBuilder extends Builder {
 	}
 
 	@Override
-	public void makeString(String str) {
+	public void buildString(String str) {
 		writer.println(String.format("<p>%s</p>", str));
 	}
 
 	@Override
-	public void makeItems(List<String> items) {
+	public void buildItems(List<String> items) {
 		writer.println("<ul>");
 		items.forEach(item -> writer.println(String.format("<li>%s</li>", item)));
 		writer.println("</ul>");
 	}
 
 	@Override
-	public void close() {
+	public void buildDone() {
 		writer.println("</body></html>");
 		writer.close();
 	}

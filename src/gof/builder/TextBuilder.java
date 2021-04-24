@@ -6,26 +6,26 @@ public class TextBuilder extends Builder {
 	private StringBuilder sbuilder = new StringBuilder();
 
 	@Override
-	public void makeTitle(String title) {
+	public void buildTitle(String title) {
 		sbuilder.append("===========================================\n");
 		sbuilder.append(String.format("『%s』\n", title));
 		sbuilder.append("\n");
 	}
 
 	@Override
-	public void makeString(String str) {
+	public void buildString(String str) {
 		sbuilder.append(String.format("■%s\n", str));
 		sbuilder.append("\n");
 	}
 
 	@Override
-	public void makeItems(List<String> items) {
+	public void buildItems(List<String> items) {
 		items.forEach(item -> sbuilder.append(String.format("  ・%s\n", item)));
 		sbuilder.append("\n");
 	}
 
 	@Override
-	public void close() {
+	public void buildDone() {
 		sbuilder.append("===========================================\n");
 	}
 

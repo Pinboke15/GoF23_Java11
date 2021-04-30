@@ -10,7 +10,18 @@ public class Main {
 		d1.display();
 		d2.display();
 		d3.display();
-		d3.multiDisplay(3);
+		d3.multiDisplay(5);
+		// ex9-1
+		RandomCountDisplay d4 = new RandomCountDisplay(new StringDisplayImpl("Hello, Tokyo"));
+		d4.randomDisplay(8);
+		// ex9-2
+		CountDisplay d5 = new CountDisplay(new FileDisplayImpl("files/bridge/star.txt"));
+		d5.multiDisplay(4);
+		// ex9-3
+		IncrementalDisplay d6 = new IncrementalDisplay(new DecorateCharDisplayImpl('*', '<', '>'), 1);
+		IncrementalDisplay d7 = new IncrementalDisplay(new DecorateCharDisplayImpl('#', '|', '-'), 2);
+		d6.incrementalDisplay(4);
+		d7.incrementalDisplay(6);
 	}
 
 }
